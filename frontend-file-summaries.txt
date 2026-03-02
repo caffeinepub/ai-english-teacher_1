@@ -1,0 +1,7 @@
+{
+  "frontend/src/hooks/useSpeechRecognition.ts": "Custom hook for Web Speech API SpeechRecognition with fully self-contained TypeScript interface declarations (ISpeechRecognition, ISpeechRecognitionEvent, ISpeechRecognitionErrorEvent) to avoid relying on missing DOM lib types, supporting start/stop/clear transcript and error handling.",
+  "frontend/src/pages/CallScreen.tsx": "AI Voice Call screen with animated avatar, waveform visualizer, practice mode selector, real-time transcript, live feedback panel, and keyboard shortcuts; fixes the missing `Trophy` import from lucide-react and uses stable useCallback references for all handlers.",
+  "frontend/src/index.css": "Global stylesheet with OKLCH dark purple theme tokens, glassmorphism utility class, Inter font import, and all CSS keyframe animations (pulse-glow, wave-bar, xp-pop, slide-up, float, spin-slow, confetti) used throughout the app.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with app-specific colors (deep-purple, violet-primary, pink-accent, cyan-secondary), Inter font family, custom border radii, and all animation/keyframe definitions matching the CSS file.",
+  "frontend/src/pages/LoginPage.tsx": "Login page with a functional \"Sign in with Google\" styled button that triggers Internet Identity authentication, inline error display, loading states, profile setup modal for first-time users, and fully responsive layout for mobile/tablet/desktop."
+}

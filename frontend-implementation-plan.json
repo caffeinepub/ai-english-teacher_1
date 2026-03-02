@@ -1,0 +1,57 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add Internet Identity (Google-style) Login Flow to Login Page",
+  "requirements": [
+    {
+      "id": "REQ-13",
+      "summary": "Make the 'Continue with Google' button functional by wiring it to Internet Identity authentication with loading state and error handling",
+      "acceptanceCriteria": [
+        "The 'Sign in with Google' / 'Continue with Google' button on the login page is clickable and triggers Internet Identity authentication.",
+        "A loading spinner or disabled state is shown on the button while authentication is in progress.",
+        "If authentication fails, a visible error message is displayed to the user.",
+        "The button is styled consistently with the existing glassmorphism dark theme (bg-white/10, backdrop-blur-md, border border-white/20, violet/pink accent colors)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LoginPage.tsx",
+          "operation": "modify",
+          "description": "Wire the existing 'Continue with Google' button to trigger Internet Identity login using the useInternetIdentity hook. Add loading state display (spinner or disabled button with 'Logging in...' text) while loginStatus === 'logging-in'. Implement error toast or inline error message display using existing UI patterns if login fails. Ensure button styling remains consistent with glassmorphism theme (bg-white/10, backdrop-blur-md, border-white/20, violet/pink accents). Verify the authorization component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "After successful Internet Identity login, create user profile if none exists (preventing duplicates) and redirect to dashboard",
+      "acceptanceCriteria": [
+        "First-time users are prompted to enter their display name and email to complete profile creation after Internet Identity login.",
+        "If a profile already exists for the authenticated principal, no duplicate is created and the user is taken directly to the dashboard.",
+        "After profile creation or confirmation of an existing profile, the user is redirected to /dashboard.",
+        "The backend createUserProfile function (or equivalent) enforces uniqueness by principal ID."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LoginPage.tsx",
+          "operation": "modify",
+          "description": "After successful Internet Identity authentication, use getCallerUserProfile query hook to check if a profile exists. If profile is null, show the existing profile setup modal prompting for name and email. Use saveCallerUserProfile mutation to create the new profile. Prevent duplicate profile creation by checking userProfile === null before showing the modal. After profile creation or if profile already exists, programmatically navigate to /dashboard using TanStack Router navigation. Follow the authorization component's pattern for preventing profile setup modal flash by checking isAuthenticated && !profileLoading && isFetched && userProfile === null. Verify the authorization component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Ensure login page and authentication button are fully responsive across mobile, tablet, and desktop with adequate touch targets",
+      "acceptanceCriteria": [
+        "Login page layout is usable and visually correct at 320px, 768px, and 1280px viewport widths.",
+        "The authentication button has a minimum tap target of 44x44px on mobile.",
+        "No horizontal overflow or broken layout occurs on small screens."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LoginPage.tsx",
+          "operation": "modify",
+          "description": "Review and adjust the login page layout and 'Continue with Google' button to ensure full responsiveness. Apply Tailwind responsive classes to ensure proper layout at 320px (mobile), 768px (tablet), and 1280px (desktop) breakpoints. Ensure the authentication button has minimum 44x44px tap target (use min-h-[44px] and adequate padding). Test for horizontal overflow and add overflow-x-hidden or container constraints if needed. Use responsive text sizing (text-sm sm:text-base) and spacing (p-3 sm:p-4) to maintain usability across all screen sizes."
+        }
+      ]
+    }
+  ]
+}

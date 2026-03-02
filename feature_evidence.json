@@ -1,0 +1,62 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-loginpage-to-make-the-existing-continue-with-google-button-currently-ui-only-functional-by-wiring-it-to-the-internet-identity-login-flow-already-implemented-via-useinternetidentity-the-button-must-trigger-the-login-process-display-a-loading-state-while-authentication-is-in-progress-and-show-a-user-facing-error-message-toast-or-inline-if-login-fails",
+      "featureTitle": "Update the LoginPage to make the existing 'Continue with Google' button (currently UI-only) functional by wiring it to the Internet Identity login flow already implemented via useInternetIdentity. The button must trigger the login process, display a loading state while authentication is in progress, and show a user-facing error message (toast or inline) if login fails.",
+      "files": [
+        "frontend/src/pages/LoginPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-after-successful-internet-identity-login-if-no-user-profile-exists-for-the-authenticated-principal-automatically-create-a-new-profile-using-any-available-identity-information-prevent-duplicate-profiles-by-checking-for-an-existing-record-tied-to-the-same-principal-before-creating-a-new-one-then-redirect-the-user-to-the-dashboard",
+      "featureTitle": "After successful Internet Identity login, if no user profile exists for the authenticated principal, automatically create a new profile using any available identity information. Prevent duplicate profiles by checking for an existing record tied to the same principal before creating a new one. Then redirect the user to the dashboard.",
+      "files": [
+        "frontend/src/pages/LoginPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-login-page-and-its-sign-in-with-google-internet-identity-button-layout-are-fully-responsive-and-render-correctly-on-mobile-320px-tablet-and-desktop-screen-sizes-the-button-must-be-easy-to-tap-on-touch-devices-with-adequate-padding-and-font-size",
+      "featureTitle": "Ensure the login page and its 'Sign in with Google' / Internet Identity button layout are fully responsive and render correctly on mobile (320px+), tablet, and desktop screen sizes. The button must be easy to tap on touch devices with adequate padding and font size.",
+      "files": [
+        "frontend/src/pages/LoginPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Full-stack PWA called 'AI English Teacher' built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and Node.js/Express API routes. Features AI voice coaching via Web Speech API + OpenAI, JWT auth, MongoDB with in-memory fallback, XP/badge reward system, multiple practice modes (Daily Conversation, Interview, Group Discussion, RRB/SSC), admin panel, and PWA manifest. Dark purple/violet theme with glassmorphism UI.",
+  "architectural_notes": [
+    "Next.js 14 App Router with TypeScript; all API routes colocated under /app/api",
+    "MongoDB + Mongoose for persistence with in-memory Map fallback for zero-config demo",
+    "JWT stored in localStorage; bcrypt for password hashing",
+    "Web Speech API (SpeechRecognition + SpeechSynthesis) for voice I/O; female voice preferred (Microsoft Zira / Google UK English Female)",
+    "OpenAI API for grammar/fluency analysis; returns structured JSON with corrections and conversational reply",
+    "Dark theme only: deep purple (#1a0533) bg, violet (#7c3aed) primary, pink (#ec4899) accent, cyan (#06b6d4) secondary; glassmorphism cards",
+    "Google OAuth 2.0 integrated via NextAuth.js or custom Google OAuth flow; profile picture stored in user model; duplicate email prevention across auth providers"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-visually-stunning-landing-page-at-the-app-root-with-an-animated-female-ai-avatar-hero-section-emoji-with-css-glow-and-pulse-a-start-learning-cta-button-feature-highlights-voice-ai-grammar-correction-rewards-practice-modes-a-testimonials-section-and-a-dark-gradient-theme-deep-purple-1a0533-background-violet-7c3aed-primary-pink-ec4899-accent-cyan-06b6d4-secondary-apply-glassmorphism-card-style-bg-white-10-backdrop-blur-md-border-border-white-20-consistently-use-inter-font-throughout",
+      "title": "Create a visually stunning landing page at the app root with: an animated female AI avatar hero section (👩‍🏫 emoji with CSS glow and pulse), a 'Start Learning' CTA button, feature highlights (Voice AI, Grammar Correction, Rewards, Practice Modes), a testimonials section, and a dark gradient theme (deep purple #1a0533 background, violet #7c3aed primary, pink #ec4899 accent, cyan #06b6d4 secondary). Apply glassmorphism card style (bg-white/10, backdrop-blur-md, border border-white/20) consistently. Use Inter font throughout.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-jwt-based-authentication-with-login-and-signup-pages-using-glassmorphism-card-design-include-email-password-fields-with-client-side-form-validation-jwt-token-stored-in-localstorage-a-non-functional-continue-with-google-button-ui-only-and-an-authguard-component-that-redirects-unauthenticated-users-from-protected-routes-backend-must-expose-post-api-auth-signup-and-post-api-auth-login-returning-a-jwt-use-an-in-memory-user-map-as-fallback-when-mongodb-is-unavailable-passwords-must-be-hashed",
+      "title": "Implement JWT-based authentication with login and signup pages using glassmorphism card design. Include email/password fields with client-side form validation, JWT token stored in localStorage, a non-functional 'Continue with Google' button (UI only), and an AuthGuard component that redirects unauthenticated users from protected routes. Backend must expose POST /api/auth/signup and POST /api/auth/login, returning a JWT. Use an in-memory user Map as fallback when MongoDB is unavailable. Passwords must be hashed.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-dashboard-page-showing-user-profile-card-with-avatar-xp-progress-bar-with-level-labels-beginner-0-500-elementary-500-1500-intermediate-1500-3500-advanced-3500-7000-expert-7000-daily-streak-counter-with-animated-fire-emoji-badges-grid-pronunciation-pro-grammar-guru-streak-master-fluency-star-first-lesson-7-day-streak-grammar-pro-100-sessions-recent-session-history-list-quick-action-buttons-start-call-practice-modes-and-stats-total-sessions-words-corrected-accuracy-days-active-backend-must-expose-get-api-user-profile-and-put-api-user-profile-jwt-protected-to-fetch-and-update-xp-streak-badges-and-session-history",
+      "title": "Build a Dashboard page showing: user profile card with avatar, XP progress bar with level labels (Beginner 0–500, Elementary 500–1500, Intermediate 1500–3500, Advanced 3500–7000, Expert 7000+), daily streak counter with animated fire emoji, badges grid (Pronunciation Pro, Grammar Guru, Streak Master, Fluency Star, First Lesson, 7-Day Streak, Grammar Pro, 100 Sessions), recent session history list, quick-action buttons (Start Call, Practice Modes), and stats (total sessions, words corrected, accuracy %, days active). Backend must expose GET /api/user/profile and PUT /api/user/profile (JWT-protected) to fetch and update XP, streak, badges, and session history.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-ai-voice-call-screen-as-the-main-feature-with-a-large-animated-female-ai-avatar-with-pulsing-glow-animation-when-speaking-dynamic-call-status-label-calling-connected-ai-speaking-listening-a-css-animated-waveform-visualizer-vertical-bars-start-call-end-call-buttons-with-green-red-phone-icons-microphone-permission-handling-with-user-facing-error-messages-a-scrolling-real-time-transcript-display-and-a-live-feedback-panel-showing-original-user-speech-corrected-sentence-with-highlighted-differences-mistake-explanation-pronunciation-tips-and-animated-xp-counter-include-a-practice-mode-selector-daily-conversation-interview-group-discussion-rrb-ssc-implement-keyboard-shortcuts-space-to-toggle-mic-escape-to-end-call-add-confetti-animation-when-earning-badges",
+      "title": "Build the AI Voice Call screen as the main feature with: a large animated female AI avatar (👩‍🏫) with pulsing glow animation when speaking, dynamic call status label ('Calling...', 'Connected', 'AI Speaking', 'Listening...'), a CSS-animated waveform visualizer (vertical bars), Start Call / End Call buttons with green/red phone icons, microphone permission handling with user-facing error messages, a scrolling real-time transcript display, and a live feedback panel showing: original user speech, corrected sentence with highlighted differences, mistake explanation, pronunciation tips, and animated +XP counter. Include a practice mode selector (Daily Conversation, Interview, Group Discussion, RRB/SSC). Implement keyboard shortcuts: Space to toggle mic, Escape to end call. Add confetti animation when earning badges.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-full-speech-interaction-flow-using-web-speech-api-1-clicking-start-call-activates-speechrecognition-2-ai-speaks-a-greeting-via-speechsynthesis-using-a-female-english-voice-prefer-microsoft-zira-desktop-or-google-uk-english-female-fallback-to-any-en-us-female-voice-3-user-speech-is-captured-and-sent-to-post-api-speech-analyze-4-the-openai-response-is-spoken-via-speechsynthesis-and-displayed-in-the-feedback-panel-5-correct-answers-trigger-an-xp-animation-when-openai-api-key-is-not-set-return-a-realistic-mock-response-so-the-full-flow-works-in-demo-mode",
+      "title": "Implement the full speech interaction flow using Web Speech API: (1) clicking Start Call activates SpeechRecognition, (2) AI speaks a greeting via SpeechSynthesis using a female English voice (prefer 'Microsoft Zira Desktop' or 'Google UK English Female', fallback to any en-US female voice), (3) user speech is captured and sent to POST /api/speech/analyze, (4) the OpenAI response is spoken via SpeechSynthesis and displayed in the feedback panel, (5) correct answers trigger an XP animation. When OPENAI_API_KEY is not set, return a realistic mock response so the full flow works in demo mode.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-practice-modes-page-with-4-mode-cards-icons-title-description-start-button-daily-conversation-everyday-topics-weather-food-travel-interview-mode-job-interview-q-a-group-discussion-gd-topics-for-competitive-exams-rrb-ssc-mode-railway-staff-selection-commission-speaking-practice-each-card-navigates-to-the-call-screen-with-the-selected-mode-pre-set-each-mode-must-have-a-set-of-starter-prompts-that-the-ai-uses-to-begin-the-conversation",
+      "title": "Build a Practice Modes page with 4 mode cards (icons, title, description, Start button): Daily Conversation (everyday topics: weather, food, travel), Interview Mode (job interview Q&A), Group Discussion (GD topics for competitive exams), RRB/SSC Mode (Railway/Staff Selection Commission speaking practice). Each card navigates to the Call screen with the selected mode pre-set. Each mode must have a set of starter prompts that the AI uses to begin the conversation.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-xp-and-badge-reward-system-track-xp-points-and-level-in-the-user-profile-increment-streak-each-day-the-user-completes-a-practice-session-award-achievement-badges-automatically-first-lesson-7-day-streak-grammar-pro-100-sessions-pronunciation-pro-grammar-guru-streak-master-fluency-star-store-badges-in-the-user-model-display-animated-xp-counter-on-correct-answers-and-badge-unlock-notification-with-confetti",
+      "title": "Implement the XP and badge reward system: track XP points and level in the user profile, increment streak each day the user completes a practice session, award achievement badges automatically (First Lesson, 7-Day Streak, Grammar Pro, 100 Sessions, Pronunciation Pro, Grammar Guru, Streak Master, Fluency Star). Store badges in the User model. Display animated XP counter on correct answers and badge unlock notification with confetti.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-admin-panel-page-accessible-only-to-users-with-role-admin-include-a-table-of-all-users-with-columns-name-email-xp-sessions-last-active-mock-usage-statistics-bar-or-line-chart-and-a-form-to-add-edit-conversation-scripts-per-practice-mode-backend-must-expose-get-api-admin-users-returns-all-users-and-post-api-admin-scripts-saves-a-script-for-a-mode-both-jwt-protected-and-restricted-to-admin-role",
+      "title": "Build an Admin Panel page accessible only to users with role='admin'. Include: a table of all users with columns (name, email, XP, sessions, last active), mock usage statistics (bar or line chart), and a form to add/edit conversation scripts per practice mode. Backend must expose GET /api/admin/users (returns all users) and POST /api/admin/scripts (saves a script for a mode), both JWT-protected and restricted to admin role.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-configure-the-app-as-a-pwa-add-public-manifest-json-with-name-ai-english-teacher-short-name-ai-teacher-theme-color-7c3aed-background-color-1a0533-display-standalone-and-pwa-icon-assets-add-appropriate-mobile-web-app-meta-tags-in-the-html-head-implement-a-service-worker-via-next-pwa-or-manual-public-sw-js-for-basic-offline-caching-of-the-shell",
+      "title": "Configure the app as a PWA: add /public/manifest.json with name='AI English Teacher', short_name='AI Teacher', theme_color='#7c3aed', background_color='#1a0533', display='standalone', and PWA icon assets. Add appropriate mobile web app meta tags in the HTML head. Implement a service worker (via next-pwa or manual /public/sw.js) for basic offline caching of the shell.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-dark-visual-theme-across-the-entire-application-deep-purple-1a0533-page-backgrounds-violet-7c3aed-primary-interactive-elements-pink-ec4899-accent-highlights-cyan-06b6d4-secondary-elements-glassmorphism-cards-bg-white-10-backdrop-blur-md-border-border-white-20-inter-font-css-keyframe-animations-for-avatar-pulse-glow-waveform-bars-and-xp-pop-effects-ensure-mobile-first-responsive-layout-from-320px-to-4k-add-loading-states-skeleton-loaders-or-spinners-toast-notifications-for-errors-and-successes-and-error-boundaries-on-major-sections",
+      "title": "Apply a cohesive dark visual theme across the entire application: deep purple (#1a0533) page backgrounds, violet (#7c3aed) primary interactive elements, pink (#ec4899) accent highlights, cyan (#06b6d4) secondary elements, glassmorphism cards (bg-white/10, backdrop-blur-md, border border-white/20), Inter font, CSS keyframe animations for avatar pulse/glow, waveform bars, and XP pop effects. Ensure mobile-first responsive layout from 320px to 4K. Add loading states (skeleton loaders or spinners), toast notifications for errors and successes, and error boundaries on major sections.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-loginpage-to-make-the-existing-continue-with-google-button-currently-ui-only-functional-by-wiring-it-to-the-internet-identity-login-flow-already-implemented-via-useinternetidentity-the-button-must-trigger-the-login-process-display-a-loading-state-while-authentication-is-in-progress-and-show-a-user-facing-error-message-toast-or-inline-if-login-fails",
+      "title": "Update the LoginPage to make the existing 'Continue with Google' button (currently UI-only) functional by wiring it to the Internet Identity login flow already implemented via useInternetIdentity. The button must trigger the login process, display a loading state while authentication is in progress, and show a user-facing error message (toast or inline) if login fails.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-successful-internet-identity-login-if-no-user-profile-exists-for-the-authenticated-principal-automatically-create-a-new-profile-using-any-available-identity-information-prevent-duplicate-profiles-by-checking-for-an-existing-record-tied-to-the-same-principal-before-creating-a-new-one-then-redirect-the-user-to-the-dashboard",
+      "title": "After successful Internet Identity login, if no user profile exists for the authenticated principal, automatically create a new profile using any available identity information. Prevent duplicate profiles by checking for an existing record tied to the same principal before creating a new one. Then redirect the user to the dashboard.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-login-page-and-its-sign-in-with-google-internet-identity-button-layout-are-fully-responsive-and-render-correctly-on-mobile-320px-tablet-and-desktop-screen-sizes-the-button-must-be-easy-to-tap-on-touch-devices-with-adequate-padding-and-font-size",
+      "title": "Ensure the login page and its 'Sign in with Google' / Internet Identity button layout are fully responsive and render correctly on mobile (320px+), tablet, and desktop screen sizes. The button must be easy to tap on touch devices with adequate padding and font size.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Landing page with animated AI avatar hero section, feature highlights, testimonials, dark gradient theme",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Dashboard with XP progress bar, daily streak, badges grid, session history, and stats",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "AI Voice Call screen (main feature) with animated avatar, waveform, mic input, real-time transcript, and OpenAI feedback",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Grammar correction API route using OpenAI returning JSON with corrections, XP, and spoken response",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Practice modes page with 4 modes: Daily Conversation, Interview, Group Discussion, RRB/SSC",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Reward system with XP points, level badges, daily streak tracking, and achievement badges",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Admin panel for managing conversation scripts and viewing user stats",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "PWA configuration with manifest.json, service worker, and mobile meta tags",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Mock/demo mode when OpenAI API key is absent; in-memory fallback when MongoDB is unavailable",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Create POST /api/speech/analyze backend route that sends the user transcript to OpenAI with the prompt: analyze for grammar, pronunciation phonetics, and fluency. Return JSON: { original, corrected, isCorrect, mistakes: [{type, error, correction, explanation}], encouragement, pronunciationTips, xpEarned, spokenResponse }. Update the user's XP and session record. When OPENAI_API_KEY is absent, return a realistic hardcoded mock response. Handle errors gracefully with appropriate HTTP status codes.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Implement MongoDB data models with in-memory fallback. User model fields: name, email, password (bcrypt hashed), role ('user'|'admin'), xp, level, streak, lastActive, badges (array of strings), totalSessions, createdAt. Session model fields: userId, mode, transcript (array of {speaker, text, timestamp}), corrections (array of {original, corrected, mistakes}), xpEarned, duration, createdAt. When MONGODB_URI is not set or connection fails, use an in-memory Map so all features remain functional. Seed one demo admin user and sample session data on startup.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Integrate Google OAuth 2.0 login: 'Sign in with Google' button on login page, auto-create accounts from Google profile (name, email, profile picture), prevent duplicate accounts by email, secure session management with JWT, redirect to dashboard on success, show error messages on failure, mobile/tablet/desktop responsive",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "AI English Teacher",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

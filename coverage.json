@@ -1,0 +1,61 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-03-02T10:07:58.658Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-13",
+        "summary": "Update the LoginPage to make the existing 'Continue with Google' button (currently UI-only) functional by wiring it to the Internet Identity login flow already implemented via useInternetIdentity. The button must trigger the login process, display a loading state while authentication is in progress, and show a user-facing error message (toast or inline) if login fails.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LoginPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LoginPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "After successful Internet Identity login, if no user profile exists for the authenticated principal, automatically create a new profile using any available identity information. Prevent duplicate profiles by checking for an existing record tied to the same principal before creating a new one. Then redirect the user to the dashboard.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LoginPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LoginPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Ensure the login page and its 'Sign in with Google' / Internet Identity button layout are fully responsive and render correctly on mobile (320px+), tablet, and desktop screen sizes. The button must be easy to tap on touch devices with adequate padding and font size.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LoginPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LoginPage.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/pages/LoginPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

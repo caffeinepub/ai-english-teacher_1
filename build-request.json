@@ -1,0 +1,83 @@
+{
+  "kind": "build_request",
+  "title": "Add Internet Identity (Google-style) Login Flow to Login Page",
+  "projectName": "AI English Teacher",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-13",
+      "text": "Update the LoginPage to make the existing 'Continue with Google' button (currently UI-only) functional by wiring it to the Internet Identity login flow already implemented via useInternetIdentity. The button must trigger the login process, display a loading state while authentication is in progress, and show a user-facing error message (toast or inline) if login fails.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "Add a 'Sign in with Google' button on the login page.",
+          "Show proper error messages if login fails."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The 'Sign in with Google' / 'Continue with Google' button on the login page is clickable and triggers Internet Identity authentication.",
+        "A loading spinner or disabled state is shown on the button while authentication is in progress.",
+        "If authentication fails, a visible error message is displayed to the user.",
+        "The button is styled consistently with the existing glassmorphism dark theme (bg-white/10, backdrop-blur-md, border border-white/20, violet/pink accent colors)."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "After successful Internet Identity login, if no user profile exists for the authenticated principal, automatically create a new profile using any available identity information. Prevent duplicate profiles by checking for an existing record tied to the same principal before creating a new one. Then redirect the user to the dashboard.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "Allow new users to automatically create an account using their Google profile (name, email, profile picture).",
+          "Prevent duplicate accounts using the same email.",
+          "Redirect users to the dashboard after successful login."
+        ]
+      },
+      "acceptanceCriteria": [
+        "First-time users are prompted to enter their display name and email to complete profile creation after Internet Identity login.",
+        "If a profile already exists for the authenticated principal, no duplicate is created and the user is taken directly to the dashboard.",
+        "After profile creation or confirmation of an existing profile, the user is redirected to /dashboard.",
+        "The backend createUserProfile function (or equivalent) enforces uniqueness by principal ID."
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Ensure the login page and its 'Sign in with Google' / Internet Identity button layout are fully responsive and render correctly on mobile (320px+), tablet, and desktop screen sizes. The button must be easy to tap on touch devices with adequate padding and font size.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "Make the UI modern and responsive, and ensure the Google login works on mobile, tablet, and desktop devices."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Login page layout is usable and visually correct at 320px, 768px, and 1280px viewport widths.",
+        "The authentication button has a minimum tap target of 44x44px on mobile.",
+        "No horizontal overflow or broken layout occurs on small screens."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not use Google OAuth 2.0 directly — the platform supports only Internet Identity for authentication.",
+    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
+    "All backend logic must remain in the single Motoko actor at backend/main.mo.",
+    "No external auth providers (Auth0, Firebase, etc.) may be introduced."
+  ],
+  "nonGoals": [
+    "Direct Google OAuth 2.0 / Google API integration (not supported on this platform).",
+    "Storing Google profile pictures as external URLs fetched from Google servers.",
+    "Email/password authentication changes.",
+    "Changes to the Admin Panel, Call Screen, or Practice Modes pages."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

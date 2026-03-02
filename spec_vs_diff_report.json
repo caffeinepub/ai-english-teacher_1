@@ -1,0 +1,32 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-03-02T10:07:58.654Z",
+  "summary": "The diff implements REQ-13, REQ-14, and REQ-15 to varying degrees. REQ-13 (wiring the login button to Internet Identity with loading state and error handling) is well-implemented. REQ-15 (responsive layout) appears addressed with responsive Tailwind classes. REQ-14 is partially implemented on the frontend (profile setup modal for first-time users, redirect to dashboard, duplicate prevention via profile check), but the backend uniqueness enforcement via a dedicated createUserProfile function is not clearly visible in the truncated diff.",
+  "missing_requirements": [
+    {
+      "id": "REQ-14",
+      "requirement": "The backend createUserProfile function (or equivalent) enforces uniqueness by principal ID, preventing duplicate profiles for the same principal.",
+      "reason": "The backend diff shows saveCallerUserProfile which appears to be an upsert/overwrite rather than a create-with-uniqueness-check. No dedicated createUserProfile function with an explicit uniqueness guard is visible in the truncated backend/main.mo diff.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Handling of 'User is already authenticated' error by calling clear() and re-invoking login() after a 300ms timeout.",
+      "reason": "The build request does not specify any re-authentication flow or handling of an already-authenticated state edge case. This logic was added beyond what was requested.",
+      "evidence": [
+        "frontend/src/pages/LoginPage.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/src/pages/LoginPage.tsx",
+    "project_state.json"
+  ]
+}
